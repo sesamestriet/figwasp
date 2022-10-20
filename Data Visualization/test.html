@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div class="bk-root" id="c55a4261-6689-45a5-87cb-7795a6ed600a" data-root-id="1034"></div>
+  
+    <script type="application/json" id="1167">
+      {"cc016a0f-d782-4d5b-a1c4-f497b093fe5b":{"defs":[],"roots":{"references":[{"attributes":{"overlay":{"id":"1024"}},"id":"1022","type":"LassoSelectTool"},{"attributes":{},"id":"1038","type":"BasicTickFormatter"},{"attributes":{"coordinates":null,"data_source":{"id":"1002"},"glyph":{"id":"1029"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1031"},"nonselection_glyph":{"id":"1030"},"view":{"id":"1033"}},"id":"1032","type":"GlyphRenderer"},{"attributes":{"args":{"source_data":{"id":"1002"}},"code":"\n        var inds = source_data.selected['1d'].indices;\n        var data = source_data.data;\n        var out = \"\";\n        for (i = 0; i &lt; inds.length; i++) {\n            out += \"(\" + data['x'][inds[i]] + \", \" + data['y'][inds[i]] +\") \";\n        }\n        var file = new Blob([out], {type: 'text/plain'});\n        var elem = window.document.createElement('a');\n        elem.href = window.URL.createObjectURL(file);\n        elem.download = 'selected-data.txt';\n        document.body.appendChild(elem);\n        elem.click();\n        document.body.removeChild(elem);\n        "},"id":"1004","type":"CustomJS"},{"attributes":{},"id":"1039","type":"AllLabels"},{"attributes":{},"id":"1008","type":"DataRange1d"},{"attributes":{"coordinates":null,"fill_alpha":0.5,"fill_color":"lightgrey","group":null,"level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"syncable":false,"xs_units":"screen","ys_units":"screen"},"id":"1024","type":"PolyAnnotation"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1029","type":"Circle"},{"attributes":{},"id":"1012","type":"LinearScale"},{"attributes":{"button_type":"success","icon":null,"js_event_callbacks":{"button_click":[{"id":"1004"}]},"label":"Save"},"id":"1003","type":"Button"},{"attributes":{"below":[{"id":"1014"}],"center":[{"id":"1017"},{"id":"1021"}],"height":400,"left":[{"id":"1018"}],"renderers":[{"id":"1032"}],"title":{"id":"1035"},"toolbar":{"id":"1025"},"width":400,"x_range":{"id":"1006"},"x_scale":{"id":"1010"},"y_range":{"id":"1008"},"y_scale":{"id":"1012"}},"id":"1005","subtype":"Figure","type":"Plot"},{"attributes":{"coordinates":null,"formatter":{"id":"1041"},"group":null,"major_label_policy":{"id":"1042"},"ticker":{"id":"1015"}},"id":"1014","type":"LinearAxis"},{"attributes":{},"id":"1043","type":"UnionRenderers"},{"attributes":{"coordinates":null,"formatter":{"id":"1038"},"group":null,"major_label_policy":{"id":"1039"},"ticker":{"id":"1019"}},"id":"1018","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"#1f77b4"},"hatch_alpha":{"value":0.2},"line_alpha":{"value":0.2},"line_color":{"value":"#1f77b4"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1031","type":"Circle"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{},"id":"1044","type":"Selection"},{"attributes":{},"id":"1015","type":"BasicTicker"},{"attributes":{"axis":{"id":"1014"},"coordinates":null,"group":null,"ticker":null},"id":"1017","type":"Grid"},{"attributes":{"source":{"id":"1002"}},"id":"1033","type":"CDSView"},{"attributes":{"tools":[{"id":"1022"},{"id":"1023"}]},"id":"1025","type":"Toolbar"},{"attributes":{"children":[{"id":"1005"},{"id":"1003"}]},"id":"1034","type":"Column"},{"attributes":{"coordinates":null,"group":null},"id":"1035","type":"Title"},{"attributes":{},"id":"1042","type":"AllLabels"},{"attributes":{"axis":{"id":"1018"},"coordinates":null,"dimension":1,"group":null,"ticker":null},"id":"1021","type":"Grid"},{"attributes":{"data":{"x":[0.4505008374847065,0.36341124199968067,0.8935252407682877,0.940812517996341,0.31905582498633034,0.37435536586437,0.27653088037671225,0.5552913270971682,0.9383998113347097,0.4203035654769244,0.5826870073942573,0.21428082480219457,0.18660490630669624,0.9003656316252818,0.37761559551965673,0.8566197894542462,0.9200096007651616,0.334021452778673,0.5841275466334372,0.17862250220666565,0.9061880427932723,0.7154369006439912,0.8212283831105023,0.6166645171751077,0.27183769125598367,0.2955346953147887,0.21351646920873002,0.8499804692892086,0.7221785748273801,0.852003215821717,0.5936593798130756,0.47958879555667766,0.8602850765556841,0.18828337010004714,0.26658945575585324,0.7037540121699779,0.19912381074218277,0.28908219608758234,0.5775741582156027,0.507831062153169,0.7930592930013414,0.18371839689644276,0.572911966366308,0.9951216277452178,0.8876021714880551,0.2601125213810733,0.039520634280024836,0.9719604308746663,0.6093070972159833,0.6318941435781641,0.2993843534707685,0.6396719678546092,0.11527646050703133,0.5489162603971635,0.09901689041022921,0.8085704522854752,0.45218624341967883,0.7004954017274545,0.15034793151476478,0.3243835767000377,0.1693009369231422,0.3001451691094418,0.3164136732545083,0.5689785655558294,0.8346165806185378,0.9742949349479286,0.6711606437539569,0.2847941786583701,0.588436196057319,0.5639482983287083,0.5455876870131801,0.8056293775384881,0.3631034592576231,0.41485962735476145,0.18603915272244176,0.6684482092161914,0.23119952246913933,0.13523363671783661,0.24577572836823147,0.677148597896979,0.04769190252143318,0.285564769109234,0.5969506290390556,0.39712947291163203,0.25447056982144833,0.4784591678724859,0.23834990844982495,0.8609271088411852,0.8911089940293319,0.5183268071340865,0.9518280121142945,0.8767871417074047,0.7322185173051652,0.22327971504668687,0.3449350713606887,0.004786662156523236,0.26290721955335006,0.4569825480384745,0.26030936805405713,0.5074536587441618],"y":[0.3430119560813726,0.13648437879864572,0.04598810041361334,0.7567277518918475,0.197431351325001,0.4757452626117472,0.8378722201568153,0.9241540892211496,0.940242464232933,0.2167098793004375,0.9370911698108966,0.33905642626529897,0.3834995669065627,0.45809539008527633,0.7919988907139645,0.7789736580272159,0.9510949522300058,0.7480499186719766,0.22980744347022652,0.9318418054098665,0.9157429825965991,0.11467194772636724,0.9881919029612386,0.8499348928835339,0.6879456894111408,0.3863948518539261,0.469922200284953,0.605518380392122,0.8699574190392494,0.07587112554925357,0.17029926373442805,0.1983629084365447,0.4209356210348234,0.4460233429939363,0.7345766737349313,0.9367560059725631,0.3922477348667863,0.8762298257646295,0.9480629324163014,0.34351328557941585,0.991691522505909,0.29559701974614727,0.10233423035984035,0.7043474662214952,0.483479497066289,0.35572397816806356,0.8553955908118545,0.149452903615219,0.8460237941051802,0.044999534571657174,0.3899580600423814,0.5469687315621786,0.08327041443413796,0.582473996029122,0.8908442281120336,0.5973439212552338,0.4702715403533717,0.310198891813135,0.41334734227396885,0.9530916629869303,0.5742475298390403,0.2722372527318173,0.981935668534519,0.35227386383205084,0.7377632261714039,0.3219898813047971,0.10195512256505801,0.501181923937016,0.9882500771812142,0.8851123968536174,0.45719622555234707,0.8593867290275461,0.03814094314046057,0.7014527549517245,0.5267173268710568,0.7347395685430782,0.219080373101478,0.31101430872974134,0.6148893499790261,0.42798157612552923,0.769225388567586,0.46361148906136884,0.7472042953099358,0.7771538619649657,0.7055180663237506,0.3848097703055887,0.07862148809605529,0.4255499383778093,0.3555811879501377,0.12666686723668286,0.15459226394663417,0.06900858964909284,0.7040624999094446,0.21275560296039808,0.9243053424058714,0.19689250129440228,0.42049247003323764,0.6053574914996017,0.2642340425028289,0.08367651083201666]},"selected":{"id":"1044"},"selection_policy":{"id":"1043"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{},"id":"1019","type":"BasicTicker"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"hatch_alpha":{"value":0.1},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x":{"field":"x"},"y":{"field":"y"}},"id":"1030","type":"Circle"},{"attributes":{},"id":"1006","type":"DataRange1d"},{"attributes":{},"id":"1023","type":"ResetTool"},{"attributes":{},"id":"1041","type":"BasicTickFormatter"}],"root_ids":["1034"]},"title":"Bokeh Application","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('1167').textContent;
+              const render_items = [{"docid":"cc016a0f-d782-4d5b-a1c4-f497b093fe5b","root_ids":["1034"],"roots":{"1034":"c55a4261-6689-45a5-87cb-7795a6ed600a"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

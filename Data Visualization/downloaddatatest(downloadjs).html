@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div class="bk-root" id="380c1a18-f35e-4ab0-a709-831a910ec92e" data-root-id="1002"></div>
+  
+    <script type="application/json" id="1028">
+      {"0b869f92-2297-4904-8e10-43389b1beb43":{"defs":[],"roots":{"references":[{"attributes":{"data":{"list1":[0,1,2,3],"list2":[4,5,6,7]},"selected":{"id":"1005"},"selection_policy":{"id":"1004"}},"id":"1001","type":"ColumnDataSource"},{"attributes":{},"id":"1004","type":"UnionRenderers"},{"attributes":{"args":{"source":{"id":"1001"}},"code":"function table_to_csv(source) {\n    const columns = Object.keys(source.data)\n    const nrows = source.get_length()\n    const lines = [columns.join(',')]\n\n    for (let i = 0; i &lt; nrows; i++) {\n        let row = [];\n        for (let j = 0; j &lt; columns.length; j++) {\n            const column = columns[j]\n            row.push(source.data[column][i].toString())\n        }\n        lines.push(row.join(','))\n    }\n    return lines.join('\\n').concat('\\n')\n}\n\n\nconst filename = 'data_result.csv'\nconst filetext = table_to_csv(source)\nconst blob = new Blob([filetext], { type: 'text/csv;charset=utf-8;' })\n\n//addresses IE\nif (navigator.msSaveBlob) {\n    navigator.msSaveBlob(blob, filename)\n} else {\n    const link = document.createElement('a')\n    link.href = URL.createObjectURL(blob)\n    link.download = filename\n    link.target = '_blank'\n    link.style.visibility = 'hidden'\n    link.dispatchEvent(new MouseEvent('click'))\n}"},"id":"1003","type":"CustomJS"},{"attributes":{"button_type":"success","icon":null,"js_event_callbacks":{"button_click":[{"id":"1003"}]},"label":"Download"},"id":"1002","type":"Button"},{"attributes":{},"id":"1005","type":"Selection"}],"root_ids":["1002"]},"title":"Bokeh Application","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('1028').textContent;
+              const render_items = [{"docid":"0b869f92-2297-4904-8e10-43389b1beb43","root_ids":["1002"],"roots":{"1002":"380c1a18-f35e-4ab0-a709-831a910ec92e"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
